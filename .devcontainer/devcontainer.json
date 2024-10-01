@@ -64,7 +64,7 @@
 	    	        "description": "Dynatrace Operator token"
 		},
 		  "DT_API_TOKEN": {
-	    	        "description": "Dynatrace Ingest API token"
+	    	        "description": "Dynatrace Ingest Access token"
 		}
 	}
 }
