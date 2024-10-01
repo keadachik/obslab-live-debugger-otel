@@ -8,7 +8,7 @@ The Demo environment will showcase the following:
 - Collecting debug data from the application with the **Dynatrace Live Debugger**
 - Using distributed traces to discovery more information about the issue using the TraceID collected from the Live Debugger
 
-## Architecture
+## Demo App
 
 The OpenTelemetry Demo app and source code can be found here: https://github.com/open-telemetry/opentelemetry-demo. The source code will be needed for Live Debugger excercises. Clone this repository locally as we'll use it later.
 
