@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [[ -z $DT_TOKEN || -z $DT_ENDPOINT ]] then
-    echo "Required variables DT_TOKEN and DT_ENDPOINT are not set. Exiting..."
+if [[ -z $DT_OPERATOR_TOKEN || -z $DT_ENDPOINT || -z $DT_API_TOKEN ]] then
+    echo "Required variables DT_OPERATOR_TOKEN, DT_ENDPOINT, or DT_API_TOKEN are not set. Exiting..."
     exit 1
 fi
 
