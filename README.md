@@ -6,7 +6,7 @@ The Demo environment will showcase the following:
 - Deployment of the OpenTelemetry Demo App with the High CPU Feature Flag Bug enabled
 - OpenPipeline to create problems based on incoming logs identifying high CPU
 - Collecting debug data from the application with the **Dynatrace Live Debugger**
-- Using distributed traces to discovery more information about the issue using the TraceID collected from the Live Debugger
+- Using distributed traces to discover more information about the issue using the Trace ID collected from the Live Debugger
 
 ## Demo App
 
@@ -156,7 +156,7 @@ nohup kubectl port-forward svc/my-otel-demo-frontendproxy 8080:8080 &
 
 ![screenshot](screenshots/otel-demo-product.jpg)
 
-9. After hitting the product page, the AdService will log a high CPU message into the AdService logs. You can view the log message by running the following command:
+9. After hitting the product page, the AdService will log a high CPU message into the AdService logs. You can view the log message by running the command below. Replace the pod name with your adservice pod name:
 
 ```sh
 kubectl logs my-otel-demo-adservice-5964788696-bwkls  
