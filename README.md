@@ -56,22 +56,22 @@ The OpenTelemetry Demo app and source code can be found here: https://github.com
 
 3. The [Dynatrace OneAgent](https://docs.dynatrace.com/docs/setup-and-configuration/setup-on-k8s) will also be deployed in the cluster using the Dynatrace Operator. You can validate the Operator is running by using the following command:
 
-  ```sh
-  kubectl get dynakubes -n dynatrace
-  ```
+   ```sh
+    kubectl get dynakubes -n dynatrace
+   ```
 
-It should be in a `Running` state:
+    It should be in a `Running` state:
 
-  ```
-  NAME       APIURL                                    STATUS       AGE
-  kind-k8s   https://abc123.live.dynatrace.com/api     Running      98s
-  ```
+    ```
+    NAME       APIURL                                    STATUS       AGE
+    kind-k8s   https://abc123.live.dynatrace.com/api     Running      98s
+    ```
 
 4. Next, forward traffic from the service to your local machine using:
 
-```sh
-nohup kubectl port-forward svc/my-otel-demo-frontendproxy 8080:8080 &
-```
+    ```sh
+    nohup kubectl port-forward svc/my-otel-demo-frontendproxy 8080:8080 &
+    ```
 
 5. Click the popup that appears to open the application in a new tab, or navigate to the "Ports" tab from the terminal and copy the URL from the row with port 8080.
 
@@ -158,9 +158,9 @@ nohup kubectl port-forward svc/my-otel-demo-frontendproxy 8080:8080 &
 
 9. After hitting the product page, the AdService will log a high CPU message into the AdService logs. You can view the log message by running the command below. Replace the pod name with your adservice pod name:
 
-```sh
-kubectl logs my-otel-demo-adservice-5964788696-bwkls  
-```
+  ```sh
+  kubectl logs my-otel-demo-adservice-5964788696-bwkls  
+  ```
 You should see:
 
 ```
