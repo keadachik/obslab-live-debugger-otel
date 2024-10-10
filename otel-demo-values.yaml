@@ -20,7 +20,7 @@ components:
       supportInfo: |+
         ## Ad Service Issue Support Information
         The adService can be debugged within the Live Debugger
-        by clicking on this link [Debug Service](https://qcx76851.apps.dynatrace.com/ui/apps/dynatrace.devobs.debugger/redirect/?integration=dashboard&org=qcx76851&labels=[%22k8s.container.name:adservice%22])
+        by clicking on this link [Debug Service](${DT_ENDPOINT}/ui/apps/dynatrace.devobs.debugger/redirect/?integration=dashboard&org=qcx76851&labels=[%22k8s.container.name:adservice%22])
 
 default:
   env:
