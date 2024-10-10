@@ -11,6 +11,11 @@ kind create cluster --config .devcontainer/kind-cluster.yaml --wait 300s
 # remove trailing slash on DT_ENDPOINT if it exists
 DT_ENDPOINT=$(echo "$DT_ENDPOINT" | sed "s,/$,,")
 echo "Removed any trailing slashes in DT_ENDPOINT"
+
+# Need the host name for the debug url link in otel-demo-values.yaml
+DT_HOST=$(echo $DT_ENDPOINT | cut -d'/' -f3 | cut -d'.' -f1)
+echo "Setting DT_HOST=$DT_HOST" 
+
 # Base64 encode DT_TOKEN, remove newlines that are auto added
 DT_OPERATOR_TOKEN=$(echo -n $DT_OPERATOR_TOKEN | base64 -w 0)
 
