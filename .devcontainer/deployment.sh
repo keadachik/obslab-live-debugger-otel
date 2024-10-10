@@ -39,8 +39,8 @@ helm repo update
 # Install Dynatrace Otel Collector
 helm upgrade -i dynatrace-collector open-telemetry/opentelemetry-collector -f collector-values.yaml
 
-# Install the Otel demo app
-helm upgrade -i my-otel-demo open-telemetry/opentelemetry-demo -f otel-demo-values.yaml
+# Install the Otel demo app with environment variable substitution for the tenant reference in otel-demo-values.yaml
+envsubst < otel-demo-values.yaml | helm upgrade -i my-otel-demo open-telemetry/opentelemetry-demo -f -
 
 # Wait for pods frontend and flagd pods to be ready before we use them
 kubectl rollout status deployment my-otel-demo-frontendproxy
