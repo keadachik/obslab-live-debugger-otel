@@ -1,4 +1,4 @@
-#!/bin/bash
+r#!/bin/bash
 
 if [[ -z $DT_OPERATOR_TOKEN || -z $DT_ENDPOINT || -z $DT_API_TOKEN ]] then
     echo "Required variables DT_OPERATOR_TOKEN, DT_ENDPOINT, or DT_API_TOKEN are not set. Exiting..."
@@ -13,7 +13,7 @@ DT_ENDPOINT=$(echo "$DT_ENDPOINT" | sed "s,/$,,")
 echo "Removed any trailing slashes in DT_ENDPOINT"
 
 # Need the host name for the debug url link in otel-demo-values.yaml
-DT_HOST=$(echo $DT_ENDPOINT | cut -d'/' -f3 | cut -d'.' -f1)
+export DT_HOST=$(echo $DT_ENDPOINT | cut -d'/' -f3 | cut -d'.' -f1)
 echo "Setting DT_HOST=$DT_HOST" 
 
 # Base64 encode DT_TOKEN, remove newlines that are auto added
@@ -45,6 +45,7 @@ helm repo update
 helm upgrade -i dynatrace-collector open-telemetry/opentelemetry-collector -f collector-values.yaml
 
 # Install the Otel demo app with environment variable substitution for the tenant reference in otel-demo-values.yaml
+envsubst < otel-demo-values.yaml > "testing.txt"
 envsubst < otel-demo-values.yaml | helm upgrade -i my-otel-demo open-telemetry/opentelemetry-demo -f -
 
 # Wait for pods frontend and flagd pods to be ready before we use them
