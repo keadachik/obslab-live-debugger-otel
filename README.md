@@ -203,21 +203,25 @@ You should see:
     
     Right click on the traceId and select **Copy value** so we can use it in the next step.
 
-18. In the Distributed traces app, let's search for this specific trace using the trace ID we just copied. In the **Filter requests** section use  the **W3C trace ID** filter and paste in the trace ID copied in the last step. Make sure to remove the double quotes from the trace ID before searching and hit enter to search. You should see the trace filtered below.
+![screenshot](screenshots/debugger-trace-tab.jpg)    
 
-![screenshot](screenshots/traces-app.jpg)
+18. In the Distributed traces app, let's search for this specific trace using the trace ID we just copied. In the **Filter requests** section use  the **Trace ID** filter and paste in the trace ID copied in the last step. You should see the trace filtered below.
 
-19. Click the **GET** link to view the trace. Jumping into the trace we are able to view the entire distributed trace which the debug snapshot we captured was a part of. Click on the **GetAds oteldemo.AdService** span to see all of the metadata for the service, timing information, threads and more. 
+![screenshot](screenshots/trace-search.jpg)
 
-![screenshot](screenshots/trace.jpg)
+19. Click the **GetAds** row to view the visual trace. Jumping into the trace we are able to view the entire distributed trace which the debug snapshot we captured was a part of. Now we want to examine the process in more detail. Click on the **oteldemo.AdService** link on the right side to be taken to the service where we can view the process details.
 
-20. We can click directly on the **Process** in the **Summary** section to view the **oteldemo.AdService** process where we can see that the CPU has spiked and is over 90%. 
+![screenshot](screenshots/trace-new.jpg)
 
-![screenshot](screenshots/trace-summary.jpg)
+20. To access the **Process** click into the **Info** tab and then select the **Process Group** link to be take to the process screen.
+
+![screenshot](screenshots/otel-demo-process-group.jpg)
+
+21. Navigate to the process group instance which shows an increase in CPU. Here we can see that the CPU has spiked and is over 90%. 
 
 ![screenshot](screenshots/adservice-process.jpg)
 
-21. You can further navigate into the **View detailed CPU breakdown** button to analyze what is consuming the CPU. 
+22. You can further navigate into the **View detailed CPU breakdown** button to analyze what is consuming the CPU. 
 
     In the Background thread CPU row, click on the three dots under **Actions** and select **Threads** to view the threads consuming the CPU time. Evntually diving deeper we can see the specific threads consuming the CPU. We can see 4 threads consuming CPU which should match the CPULoad threads we saw from the Live Debugger snapshot.
 
