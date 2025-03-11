@@ -67,6 +67,12 @@ The OpenTelemetry Demo app and source code can be found here: https://github.com
     kind-k8s   https://abc123.live.dynatrace.com/api     Running      98s
     ```
 
+You may need to also restart the AdService pod to ensure the live debugger is enabled properly. To do so, run the following command after the Dynakube is in a running state:
+
+    ```
+    kubectl rollout restart deployment/adservice
+    ```
+
 4. Next, forward traffic from the service to your local machine using:
 
     ```sh
