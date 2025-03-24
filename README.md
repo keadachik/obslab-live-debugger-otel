@@ -70,13 +70,13 @@ The OpenTelemetry Demo app and source code can be found here: https://github.com
     You may need to also restart the AdService pod to ensure the live debugger is enabled properly. To do so, run the following command after the Dynakube is in a running state:
 
     ```
-    kubectl rollout restart deployment/adservice
+    kubectl rollout restart deployment/ad
     ```
 
 4. Next, forward traffic from the service to your local machine using:
 
     ```sh
-    nohup kubectl port-forward svc/my-otel-demo-frontendproxy 8080:8080 &
+    nohup kubectl port-forward svc/frontend-proxy 8080:8080 &
     ```
 
 5. Click the popup that appears to open the application in a new tab, or navigate to the "Ports" tab from the terminal and copy the URL from the row with port 8080.
