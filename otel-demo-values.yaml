@@ -10,17 +10,29 @@ opensearch:
   enabled: false
 
 components:
-  accountingService:
+  flagd:
+    resources:
+      limits:
+        memory: 250Mi    
+  accounting:
     enabled: false
-  adService:
+  email:
+    enabled: false
+  load-generator:
+    enabled: false
+  fraud-detection:
+    enabled: false
+  shipping:
+    enabled: false
+  ad:
     podAnnotations:
       ownedBy: josh
       product: otel-demo-app
       costCentre: dynatrace1
       supportInfo: |+
         ## Ad Service Issue Support Information
-        The adService can be debugged within the Live Debugger
-        by clicking on this link [Debug Service](${DT_ENDPOINT}/ui/apps/dynatrace.devobs.debugger/redirect/?integration=dashboard&org=${DT_HOST}&labels=[%22k8s.container.name:adservice%22])
+        The ad service can be debugged within the Live Debugger
+        by clicking on this link [Debug Service](${DT_ENDPOINT}/ui/apps/dynatrace.devobs.debugger/redirect/?integration=dashboard&org=${DT_HOST}&labels=[%22k8s.container.name:ad%22])
 
 default:
   env:
