@@ -35,7 +35,7 @@ kubectl create secret generic dynatrace-otelcol-dt-api-credentials \
 --from-literal=DT_API_TOKEN=$DT_API_TOKEN
 
 # Install RBAC items so collector can talk to k8s API
-kubectl apply -f collector-rbac.yaml
+# kubectl apply -f collector-rbac.yaml
 
 # Add OpenTelemetry Helm Charts
 helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts
@@ -47,9 +47,12 @@ helm upgrade -i dynatrace-collector open-telemetry/opentelemetry-collector -f co
 # Install the Otel demo app with environment variable substitution for the tenant reference in otel-demo-values.yaml
 envsubst < otel-demo-values.yaml | helm upgrade -i my-otel-demo open-telemetry/opentelemetry-demo -f -
 
+# Applying flagd deployment yaml to increase memory for flagd-ui sidecar to avoid OOMException
+kubectl apply -f flagd-deployment.yaml
+
 # Wait for pods frontend and flagd pods to be ready before we use them
-kubectl rollout status deployment my-otel-demo-frontendproxy
-kubectl rollout status deployment my-otel-demo-flagd
+kubectl rollout status deployment frontend-proxy
+kubectl rollout status deployment flagd
 
 # Apply configmap with high CPU enabled for the Ad Service
-kubectl apply -f flags.yaml
+# kubectl apply -f flags.yaml
