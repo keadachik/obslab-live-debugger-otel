@@ -48,7 +48,7 @@ helm upgrade -i dynatrace-collector open-telemetry/opentelemetry-collector -f co
 envsubst < otel-demo-values.yaml | helm upgrade -i my-otel-demo open-telemetry/opentelemetry-demo -f -
 
 # Applying flagd deployment yaml to increase memory for flagd-ui sidecar to avoid OOMException
-kubectl apply -f flagd-deployment.yaml
+# kubectl apply -f flagd-deployment.yaml
 
 # Wait for pods frontend and flagd pods to be ready before we use them
 kubectl rollout status deployment frontend-proxy
