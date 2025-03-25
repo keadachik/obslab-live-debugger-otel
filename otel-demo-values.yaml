@@ -11,9 +11,22 @@ opensearch:
 
 components:
   flagd:
+    enabled: true
+    useDefault:
+      env: true
     resources:
       limits:
-        memory: 250Mi    
+        memory: 300Mi
+    # flagd-ui as a sidecar container in the same pod so the flag json file can be shared
+    sidecarContainers:
+      - name: flagd-ui
+        useDefault:
+          env: true
+        service:
+          port: 4000
+        resources:
+          limits:
+            memory: 300Mi   
   accounting:
     enabled: false
   email:
