@@ -1,4 +1,4 @@
-r#!/bin/bash
+#!/bin/bash
 
 if [[ -z $DT_OPERATOR_TOKEN || -z $DT_ENDPOINT || -z $DT_API_TOKEN ]] then
     echo "Required variables DT_OPERATOR_TOKEN, DT_ENDPOINT, or DT_API_TOKEN are not set. Exiting..."
