@@ -23,6 +23,11 @@ The OpenTelemetry Demo app and source code can be found here: https://github.com
         - logs.ingest
         - openTelemetryTrace.ingest
 
+   **Important**: When setting the `DT_ENDPOINT` secret:
+   - For 3rd generation Dynatrace environments (e.g., `sprint.dynatracelabs.com`), **do NOT include** `.apps` in the URL
+   - ❌ Incorrect: `https://abc12345.sprint.apps.dynatracelabs.com`
+   - ✅ Correct: `https://abc12345.sprint.dynatracelabs.com`
+
 2. The codespace will automatically create a [Kind](https://kind.sigs.k8s.io/) Kubernetes cluster and deploy the OpenTelemetry application. Once the codespaces is started the following services should be running in the Kind cluster:
 
    ```sh
